@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Accordion } from 'react-bootstrap';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import CelebList from './components/CelebList';
 
 
 
@@ -10,7 +11,7 @@ function App() {
 
   return (
     <div className="App">
-      Celeb
+      <CelebList/>
     </div>
   );
 }

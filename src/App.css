@@ -1,7 +1,12 @@
 .App {
   text-align: center;
+  display: flex;
+  flex-direction: column;
 }
-
+.accordion{
+  width: 400px;
+  margin-left: 40%;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
