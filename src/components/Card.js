@@ -34,9 +34,11 @@ export default function Card({ celebInfo,setCelebList }) {
     const updateRecord = () => {
         const storedData = localStorage.getItem('userData');
         if (storedData) {
+            const [firstName, lastName] = cardPayload.name.split(" ")
             const data = JSON.parse(storedData);
             const updatedData = data.map(item =>
-                item.id === cardPayload.id ? cardPayload : item // Update the specific record
+             
+                item.id === cardPayload.id ? {...cardPayload,first:firstName,last:lastName} : item // Update the specific record
             );
             // Save the updated data back to local storage
             localStorage.setItem('userData', JSON.stringify(updatedData));
@@ -46,7 +48,9 @@ export default function Card({ celebInfo,setCelebList }) {
 
     return (
         <Accordion.Item eventKey={celebInfo.id}>
-            <Accordion.Header className='d-flex justify-content-space-around'>
+            <Accordion.Header className='d-flex justify-content-space-around'    
+             onClick={(e) => e.stopPropagation()} // Prevent closing
+            >
                 <ProfileImage celebInfo={celebInfo} edit={edit} />
                 <Name celebInfo={cardPayload} edit={edit} handleInputChange={handleInputChange} /></Accordion.Header>
             <Accordion.Body className='d-flex flex-column'>
