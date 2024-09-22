@@ -11,6 +11,7 @@ export const fetchData = async (setCelebList,setFilteredCelebList) => {
       setCelebList(result);
       setFilteredCelebList(result)
     } catch (error) {
+      
       console.error(error.message); // Capture and set the error message
     }
   };
