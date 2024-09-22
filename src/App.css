@@ -1,11 +1,20 @@
 .App {
   text-align: center;
   display: flex;
-  flex-direction: column;
+  flex-direction:column ;
+  align-items: center;
+}
+.search-box{
+  width: 500px !important;
+  position: sticky !important; /* Fix it to the top */
+  top: 0; 
+  z-index: 10000
 }
 .accordion{
+  top: 40px; 
   width: 500px;
-  margin-left:35%;
+  /* margin-left:35%; */
+  border: 1px solid rgb(216, 215, 226);
 }
 .App-logo {
   height: 40vmin;

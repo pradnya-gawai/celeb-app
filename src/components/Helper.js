@@ -5,7 +5,8 @@ export const fetchData = async (setCelebList) => {
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
-      const result = await response.json(); // This should only happen once
+      const result = await response.json(); 
+      // This should only happen once
       setCelebList(result);
     } catch (error) {
       console.log(error.message); // Capture and set the error message
@@ -24,6 +25,6 @@ export const fetchData = async (setCelebList) => {
         age--;
     }
 
-    return age;
+    return `${age} Years`;
 }
 

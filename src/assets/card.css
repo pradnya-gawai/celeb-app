@@ -1,27 +1,54 @@
-.accordion-button{
+.accordion-button {
     width: 420px;
+    height: 56px;
 }
-.accordion-body{
-    width: 420px 
+
+.accordion-body {
+    width: 100%;
 }
-.img-thumbnail{
+
+.img-thumbnail {
     height: 40px !important;
     border-radius: 50% !important;
 }
-.celeb-name{
+
+.celeb-name {
     width: 50% !important;
 }
-.age-input{
-    width: 48px !important;
-} 
-
-.country-input{
-    width: 32px;
-}
- .card-body{
+.card-body {
     display: flex;
-    gap:32px;
- }
- .form-label{
+    gap: 32px;
+}
+
+.form-label {
     margin-right: auto !important;
- }
+    font-weight: 600 !important;
+}
+
+.card-actions {
+    margin-top: 12px;
+    display: flex;
+    gap: 10px;
+    justify-content: end;
+    align-items: flex-end;
+}
+
+.c-icon {
+    cursor: pointer;
+    box-sizing: border-box;
+    border: 1px solid transparent;
+    width: 24px;
+    height: 24px;
+    padding: 1px;
+    border-radius: 5px;
+
+}
+
+.c-icon:hover {
+    border-color: #b2b4b6;
+    /* Change to blue on hover */
+}
+.c-list{
+    display: flex;
+    flex-direction: row;
+}
