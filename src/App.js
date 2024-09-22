@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import CelebList from './components/CelebList';
 import SearchBar from './components/SearchBar';
 import DeleteAlert from './components/DeleteAlert';
+import { fetchData } from './components/Helper';
 
 function App() {
   const [celebList, setCelebList] = useState([])
@@ -46,6 +47,9 @@ useEffect(() => {
       setCelebList(data);
       setFilteredCelebList(data); // Initialize the filtered list to the full data
   }
+  else {
+    fetchData(setCelebList)
+}
 }, []);
   return (
     <div className="App">
