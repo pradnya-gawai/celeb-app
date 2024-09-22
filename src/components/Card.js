@@ -10,7 +10,6 @@ import Description from './Description'
 import Edit from './Edit'
 import Delete from './Delete'
 import { initialCelebInfo } from './CONSTANT'
-import DeleteAlert from './DeleteAlert'
 
 export default function Card({ celebInfo, setCelebList,deleteBoxShow }) {
     const [edit, setEdit] = useState(false)
@@ -20,7 +19,6 @@ export default function Card({ celebInfo, setCelebList,deleteBoxShow }) {
             setCardPayload({ ...celebInfo, name: `${celebInfo.first} ${celebInfo.last}` });
         }
     }, [celebInfo]);
-    // delete Box
 
     // Common handleInputChange function
     const handleInputChange = (e) => {
@@ -30,9 +28,7 @@ export default function Card({ celebInfo, setCelebList,deleteBoxShow }) {
             [name]: value,
         });
     };
-    useEffect(() => {
-        console.log(cardPayload, "cardPayload")
-    }, [cardPayload])
+
     const updateRecord = () => {
         const storedData = localStorage.getItem('userData');
         if (storedData) {

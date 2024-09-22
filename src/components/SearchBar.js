@@ -1,7 +1,15 @@
-import { MagnifyingGlass } from '@phosphor-icons/react'
-import React from 'react'
+import React,{useState} from 'react'
 
-export default function SearchBar() {
+import { MagnifyingGlass } from '@phosphor-icons/react'
+
+export default function SearchBar({onSearch}) {
+    const [searchTerm, setSearchTerm] = useState('');
+
+    const handleChange = (e) => {
+        const value = e.target.value;
+        setSearchTerm(value);
+        onSearch(value); // Call the function to update the search term in the parent component
+    };
     return (
         <div className="input-group mb-3 search-box">
             <div className="input-group-prepend">
@@ -15,6 +23,7 @@ export default function SearchBar() {
                 placeholder="Search..."
                 aria-label="Search"
                 aria-describedby="search-icon"
+                onChange={handleChange}
             />
         </div>
     )
