@@ -12,10 +12,7 @@ export default function CelebList({celebList,setCelebList,deleteBoxShow}) {
         else {
             fetchData(setCelebList)
         }
-        console.log(storedData)
-
     }, [])
-    console.log(celebList, "celebList")
 
 
     return (
