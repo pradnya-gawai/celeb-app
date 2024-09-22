@@ -1,11 +1,10 @@
 import { Trash, XCircle } from '@phosphor-icons/react'
 import React from 'react'
 
- const Delete=()=> {
+ const Delete=({deleteBoxShow})=> {
     return (
         <>
-        <Trash size={18}  color='red' className='c-icon'/>
-
+        <Trash size={18}  color='red' className='c-icon' onClick={deleteBoxShow}/>
 
         </>
     )

@@ -10,8 +10,9 @@ import Description from './Description'
 import Edit from './Edit'
 import Delete from './Delete'
 import { initialCelebInfo } from './CONSTANT'
+import DeleteAlert from './DeleteAlert'
 
-export default function Card({ celebInfo,setCelebList }) {
+export default function Card({ celebInfo, setCelebList,deleteBoxShow }) {
     const [edit, setEdit] = useState(false)
     const [cardPayload, setCardPayload] = useState(initialCelebInfo)
     useEffect(() => {
@@ -19,6 +20,7 @@ export default function Card({ celebInfo,setCelebList }) {
             setCardPayload({ ...celebInfo, name: `${celebInfo.first} ${celebInfo.last}` });
         }
     }, [celebInfo]);
+    // delete Box
 
     // Common handleInputChange function
     const handleInputChange = (e) => {
@@ -37,8 +39,8 @@ export default function Card({ celebInfo,setCelebList }) {
             const [firstName, lastName] = cardPayload.name.split(" ")
             const data = JSON.parse(storedData);
             const updatedData = data.map(item =>
-             
-                item.id === cardPayload.id ? {...cardPayload,first:firstName,last:lastName} : item // Update the specific record
+
+                item.id === cardPayload.id ? { ...cardPayload, first: firstName, last: lastName } : item // Update the specific record
             );
             // Save the updated data back to local storage
             localStorage.setItem('userData', JSON.stringify(updatedData));
@@ -48,8 +50,8 @@ export default function Card({ celebInfo,setCelebList }) {
 
     return (
         <Accordion.Item eventKey={celebInfo.id}>
-            <Accordion.Header className='d-flex justify-content-space-around'    
-             onClick={(e) => e.stopPropagation()} // Prevent closing
+            <Accordion.Header className='d-flex justify-content-space-around'
+                onClick={(e) => e.stopPropagation()} // Prevent closing
             >
                 <ProfileImage celebInfo={celebInfo} edit={edit} />
                 <Name celebInfo={cardPayload} edit={edit} handleInputChange={handleInputChange} /></Accordion.Header>
@@ -61,11 +63,14 @@ export default function Card({ celebInfo,setCelebList }) {
                 </div>
                 <Description celebInfo={cardPayload} edit={edit} handleInputChange={handleInputChange} />
                 <div className='card-actions'>
-                    <Edit setEdit={setEdit} edit={edit} handleInputChange={handleInputChange}  updateRecord={updateRecord} celebInfo={cardPayload}/>
-                    {!edit && <Delete />
+                    <Edit setEdit={setEdit} edit={edit} handleInputChange={handleInputChange} updateRecord={updateRecord} celebInfo={cardPayload} />
+                    {!edit &&
+                        <Delete deleteBoxShow={deleteBoxShow} />
                     }
                 </div>
+
             </Accordion.Body>
         </Accordion.Item>
+        
     )
 }

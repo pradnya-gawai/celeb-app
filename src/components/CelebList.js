@@ -3,7 +3,7 @@ import { Accordion } from 'react-bootstrap'
 import Card from './Card'
 import { fetchData } from './Helper'
 
-export default function CelebList() {
+export default function CelebList({deleteBoxShow}) {
 
     const [celebList, setCelebList] = useState([])
 
@@ -22,7 +22,7 @@ export default function CelebList() {
     return (
         <Accordion defaultActiveKey="0" flush>
             {celebList?.map((Item) =>
-                <Card celebInfo={Item} setCelebList={setCelebList} />)}
+                <Card celebInfo={Item} setCelebList={setCelebList} deleteBoxShow={deleteBoxShow} />)}
         </Accordion>
     )
 }
