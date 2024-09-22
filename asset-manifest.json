@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/react-gh-pages/static/css/main.51f76260.css",
-    "main.js": "/react-gh-pages/static/js/main.e4a125f5.js",
-    "static/js/453.77dd4746.chunk.js": "/react-gh-pages/static/js/453.77dd4746.chunk.js",
-    "index.html": "/react-gh-pages/index.html",
-    "main.51f76260.css.map": "/react-gh-pages/static/css/main.51f76260.css.map",
-    "main.e4a125f5.js.map": "/react-gh-pages/static/js/main.e4a125f5.js.map",
-    "453.77dd4746.chunk.js.map": "/react-gh-pages/static/js/453.77dd4746.chunk.js.map"
+    "main.css": "/celeb-app/static/css/main.51f76260.css",
+    "main.js": "/celeb-app/static/js/main.85250759.js",
+    "static/js/453.77dd4746.chunk.js": "/celeb-app/static/js/453.77dd4746.chunk.js",
+    "index.html": "/celeb-app/index.html",
+    "main.51f76260.css.map": "/celeb-app/static/css/main.51f76260.css.map",
+    "main.85250759.js.map": "/celeb-app/static/js/main.85250759.js.map",
+    "453.77dd4746.chunk.js.map": "/celeb-app/static/js/453.77dd4746.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.51f76260.css",
-    "static/js/main.e4a125f5.js"
+    "static/js/main.85250759.js"
   ]
 }
