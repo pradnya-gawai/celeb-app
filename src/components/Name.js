@@ -8,7 +8,7 @@ const Name =
             <> {edit ? <input type="text" className="form-control celeb-name ms-3" id="name" name="name" value={celebInfo?.name}
             onChange={handleInputChange}
             />
-                : <div>
+                : <div className="ms-4">
                     {celebInfo.first} {celebInfo.last}
                 </div>
             }

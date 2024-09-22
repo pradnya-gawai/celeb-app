@@ -6,16 +6,23 @@ import { fetchData } from './Helper'
 export default function CelebList() {
 
     const [celebList, setCelebList] = useState([])
-    
+
     useEffect(() => {
-         fetchData(setCelebList)
+        const storedData = localStorage.getItem('userData');
+        if (storedData) { setCelebList(JSON.parse(storedData)) }
+        else {
+            fetchData(setCelebList)
+        }
+        console.log(storedData)
+
     }, [])
     console.log(celebList, "celebList")
+
 
     return (
         <Accordion defaultActiveKey="0" flush>
             {celebList?.map((Item) =>
-                <Card celebInfo={Item} />)}
+                <Card celebInfo={Item} setCelebList={setCelebList} />)}
         </Accordion>
     )
 }

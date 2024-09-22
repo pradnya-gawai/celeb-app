@@ -11,12 +11,12 @@ import Edit from './Edit'
 import Delete from './Delete'
 import { initialCelebInfo } from './CONSTANT'
 
-export default function Card({ celebInfo }) {
+export default function Card({ celebInfo,setCelebList }) {
     const [edit, setEdit] = useState(false)
-    const [cardPayload,setCardPayload]=useState(initialCelebInfo)
+    const [cardPayload, setCardPayload] = useState(initialCelebInfo)
     useEffect(() => {
         if (celebInfo) {
-            setCardPayload({...celebInfo,name:`${celebInfo.first} ${celebInfo.last}`});
+            setCardPayload({ ...celebInfo, name: `${celebInfo.first} ${celebInfo.last}` });
         }
     }, [celebInfo]);
 
@@ -28,9 +28,21 @@ export default function Card({ celebInfo }) {
             [name]: value,
         });
     };
-    useEffect(()=>{
-console.log(cardPayload,"cardPayload")
-    },[cardPayload])
+    useEffect(() => {
+        console.log(cardPayload, "cardPayload")
+    }, [cardPayload])
+    const updateRecord = () => {
+        const storedData = localStorage.getItem('userData');
+        if (storedData) {
+            const data = JSON.parse(storedData);
+            const updatedData = data.map(item =>
+                item.id === cardPayload.id ? cardPayload : item // Update the specific record
+            );
+            // Save the updated data back to local storage
+            localStorage.setItem('userData', JSON.stringify(updatedData));
+            setCelebList(updatedData); // Update state to reflect changes
+        }
+    };
 
     return (
         <Accordion.Item eventKey={celebInfo.id}>
@@ -40,12 +52,12 @@ console.log(cardPayload,"cardPayload")
             <Accordion.Body className='d-flex flex-column'>
                 <div className='card-body'>
                     <Age celebInfo={cardPayload} edit={edit} handleInputChange={handleInputChange} />
-                    <Gender celebInfo={cardPayload} edit={edit} handleInputChange={handleInputChange}/>
+                    <Gender celebInfo={cardPayload} edit={edit} handleInputChange={handleInputChange} />
                     <Country celebInfo={cardPayload} edit={edit} handleInputChange={handleInputChange} />
                 </div>
                 <Description celebInfo={cardPayload} edit={edit} handleInputChange={handleInputChange} />
                 <div className='card-actions'>
-                    <Edit setEdit={setEdit} edit={edit} handleInputChange={handleInputChange} />
+                    <Edit setEdit={setEdit} edit={edit} handleInputChange={handleInputChange}  updateRecord={updateRecord} celebInfo={cardPayload}/>
                     {!edit && <Delete />
                     }
                 </div>

@@ -8,7 +8,7 @@ export default function Age({ celebInfo,edit,handleInputChange }) {
             {edit ? <input type="text" className="form-control age-input" id="age" name="age"
                 value={celebInfo?.age ? celebInfo?.age : calculateAge(celebInfo?.dob)}
                 onChange={handleInputChange} />
-                : <div>{celebInfo?.age ? celebInfo?.age : calculateAge(celebInfo?.dob)} </div>}
+                : <div className='me-4'>{celebInfo?.age ? celebInfo?.age : calculateAge(celebInfo?.dob)} </div>}
         </div>
     )
 }

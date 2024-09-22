@@ -13,7 +13,7 @@ export default function Gender({ celebInfo, edit,handleInputChange }) {
                         {option.label}
                     </option>
                 ))}
-            </select> : <div>{celebInfo?.gender}</div>}
+            </select> : <div className='me-4'>{celebInfo?.gender}</div>}
 
 
         </div>

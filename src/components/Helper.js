@@ -6,6 +6,7 @@ export const fetchData = async (setCelebList) => {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
       const result = await response.json(); 
+      localStorage.setItem('userData', JSON.stringify(result));
       // This should only happen once
       setCelebList(result);
     } catch (error) {
