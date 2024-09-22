@@ -1,7 +1,7 @@
 {
   "name": "celeb-app",
   "version": "0.1.0",
-  "homepage": "https://pradnya-gawai.github.io/react-gh-pages",
+  "homepage": "https://pradnya-gawai.github.io/celeb-app",
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.6.0",
