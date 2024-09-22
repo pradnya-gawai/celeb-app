@@ -10,7 +10,7 @@ export const fetchData = async (setCelebList) => {
       // This should only happen once
       setCelebList(result);
     } catch (error) {
-      console.log(error.message); // Capture and set the error message
+      console.error(error.message); // Capture and set the error message
     }
   };
 
