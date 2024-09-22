@@ -10,16 +10,30 @@ import DeleteAlert from './components/DeleteAlert';
 
 
 function App() {
+  const [celebList, setCelebList] = useState([])
   const [show, setShow] = useState(false);
-  const deleteBoxShow = () => setShow(true);
-  const deleteBoxClose = () => setShow(false);
+  const [deleteId, setDeleteId] = useState(null); // To store the ID of the item to delete
 
+  const deleteBoxShow = (id) => {
+      setDeleteId(id); // Set the ID to be deleted
+      setShow(true);
+  };  const deleteBoxClose = () => setShow(false);
 
+  const handleDelete = () => {
+    const storedData = localStorage.getItem('userData');
+    if (storedData) {
+        const data = JSON.parse(storedData);
+        const updatedData = data.filter(item => item.id !== deleteId);
+        localStorage.setItem('userData', JSON.stringify(updatedData));
+         setCelebList(updatedData);
+    }
+    deleteBoxClose(); // Close the delete box after deletion
+};
   return (
     <div className="App">
       <SearchBar/>
-      <CelebList deleteBoxShow={deleteBoxShow}/>
-      <DeleteAlert show={show} deleteBoxClose={deleteBoxClose}/>
+      <CelebList celebList={celebList}  setCelebList={setCelebList}deleteBoxShow={deleteBoxShow}/>
+      <DeleteAlert show={show} deleteBoxClose={deleteBoxClose} handleDelete={handleDelete}/>
     </div>
   );
 }

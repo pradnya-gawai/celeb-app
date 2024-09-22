@@ -65,7 +65,7 @@ export default function Card({ celebInfo, setCelebList,deleteBoxShow }) {
                 <div className='card-actions'>
                     <Edit setEdit={setEdit} edit={edit} handleInputChange={handleInputChange} updateRecord={updateRecord} celebInfo={cardPayload} />
                     {!edit &&
-                        <Delete deleteBoxShow={deleteBoxShow} />
+                        <Delete deleteBoxShow={deleteBoxShow} id={celebInfo.id} />
                     }
                 </div>
 

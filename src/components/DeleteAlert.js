@@ -1,7 +1,7 @@
 import React,{useState} from 'react'
 import { Button, Modal } from 'react-bootstrap'
 
-export default function DeleteAlert({show,deleteBoxClose}) {
+export default function DeleteAlert({show,deleteBoxClose,handleDelete}) {
 
     return (
         <Modal show={show} onHide={deleteBoxClose} size="sm" centered>
@@ -10,7 +10,7 @@ export default function DeleteAlert({show,deleteBoxClose}) {
                 <Button variant="btn btn-light" onClick={deleteBoxClose}>
                     Cancel
                 </Button>
-                <Button variant="btn btn-danger" onClick={deleteBoxClose}>
+                <Button variant="btn btn-danger" onClick={handleDelete}>
                     Delete
                 </Button>
             </Modal.Footer>

@@ -3,9 +3,8 @@ import { Accordion } from 'react-bootstrap'
 import Card from './Card'
 import { fetchData } from './Helper'
 
-export default function CelebList({deleteBoxShow}) {
+export default function CelebList({celebList,setCelebList,deleteBoxShow}) {
 
-    const [celebList, setCelebList] = useState([])
 
     useEffect(() => {
         const storedData = localStorage.getItem('userData');
