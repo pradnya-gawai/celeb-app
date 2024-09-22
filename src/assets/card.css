@@ -1,6 +1,27 @@
 .accordion-button{
-    width: 400px;
+    width: 420px;
 }
 .accordion-body{
-    width: 400px 
+    width: 420px 
 }
+.img-thumbnail{
+    height: 40px !important;
+    border-radius: 50% !important;
+}
+.celeb-name{
+    width: 50% !important;
+}
+.age-input{
+    width: 48px !important;
+} 
+
+.country-input{
+    width: 32px;
+}
+ .card-body{
+    display: flex;
+    gap:32px;
+ }
+ .form-label{
+    margin-right: auto !important;
+ }
