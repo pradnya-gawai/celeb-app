@@ -1,4 +1,4 @@
-export const fetchData = async (setCelebList) => {
+export const fetchData = async (setCelebList,setFilteredCelebList) => {
     try {
       const response = await fetch("/celebrities.json");
       // Check if response is ok (status in range 200-299)
@@ -9,6 +9,7 @@ export const fetchData = async (setCelebList) => {
       localStorage.setItem('userData', JSON.stringify(result));
       // This should only happen once
       setCelebList(result);
+      setFilteredCelebList(result)
     } catch (error) {
       console.error(error.message); // Capture and set the error message
     }

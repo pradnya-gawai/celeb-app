@@ -48,7 +48,7 @@ useEffect(() => {
       setFilteredCelebList(data); // Initialize the filtered list to the full data
   }
   else {
-    fetchData(setCelebList)
+    fetchData(setCelebList,setFilteredCelebList)
 }
 }, []);
   return (
