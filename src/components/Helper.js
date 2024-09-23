@@ -1,6 +1,6 @@
 export const fetchData = async (setCelebList,setFilteredCelebList) => {
     try {
-      const response = await fetch("/celebrities.json");
+      const response = await fetch("celebrities.json");
       // Check if response is ok (status in range 200-299)
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
@@ -11,7 +11,7 @@ export const fetchData = async (setCelebList,setFilteredCelebList) => {
       setCelebList(result);
       setFilteredCelebList(result)
     } catch (error) {
-      
+
       console.error(error.message); // Capture and set the error message
     }
   };
